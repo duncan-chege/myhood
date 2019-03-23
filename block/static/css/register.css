@@ -1,9 +1,12 @@
 .smalltxt {
-    font-size: 15px;
-    margin-top: 20px;
+    font-size: 20px;
+    margin-top: 40px;
     text-align: center;
 }
 
 .form-text {
     display: none;
+}
+.formz{
+    margin-top: 3em;
 }
