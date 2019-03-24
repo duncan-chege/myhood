@@ -11,7 +11,7 @@ class NeighbourhoodTest(TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_hood, Neighbourhood))
-    
+
     
 
    
