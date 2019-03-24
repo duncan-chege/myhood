@@ -21,8 +21,9 @@ def home(request):
     return render(request,'home.html')
 
 @login_required
-def profile(request):
-    return render(request, 'profile.html', {'form':form}) 
+def profile(request,id):
+    profiles= Profile.objects.get(id=id)
+    return render(request, 'profile.html', {'profiles':profiles}) 
 
 def hood_details(request):
     user = request.user
