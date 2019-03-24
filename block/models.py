@@ -15,5 +15,6 @@ class Profile(models.Model):
     myhood = models.ForeignKey(Neighbourhood)
     profile_image = models.ImageField(default='default.jpeg')
 
-
+    def __str__(self):
+        return f"{self.me.username}'s Profile"
 
