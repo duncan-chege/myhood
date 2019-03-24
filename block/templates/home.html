@@ -1,0 +1,44 @@
+{% extends 'mbase.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <p><b>411 of {{hood.hood_name}}</b></p>
+
+            <div class="card">
+                <img src="business.png" alt="business" style="width:100%">
+                <div class="txt_holder">
+                    <p>Get to know about businesses in {{hood.hood.name}}</p>
+
+                    <button class="home_btn">Click here</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="events.jpg" alt="Avatar" style="width:100%">
+                <div class="txt_holder">
+                    <p>Get to know about events in {{hood.hood.name}}</p>
+
+                    <button class="home_btn">Click here</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <img src="police.jpg" alt="Avatar" style="width:100%">
+                <div class="txt_holder">
+                    <p>For health and security issues in {{hood.hood.name}}</p>
+
+                    <button class="home_btn">Click here</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>

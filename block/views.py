@@ -17,8 +17,9 @@ def register(request):
 
 
 @login_required
-def home(request):
-    return render(request,'home.html')
+def home(request,id):
+    hood = Neighbourhood.objects.get(id=id)
+    return render(request,'home.html',{'hood':hood})
 
 def profile(request,id):
     user = User.objects.get(id=id)
