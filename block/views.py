@@ -20,10 +20,10 @@ def register(request):
 def home(request):
     return render(request,'home.html')
 
-@login_required
 def profile(request,id):
-    profiles= Profile.objects.get(id=id)
-    return render(request, 'profile.html', {'profiles':profiles}) 
+    user = User.objects.get(id=id)
+    profiles = Profile.objects.all()
+    return render(request, 'profile.html', {'profiles':profiles,'user':user}) 
 
 def hood_details(request):
     user = request.user
