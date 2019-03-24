@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
+from .forms import *
+from .models import *
 
 # Create your views here.
 def register(request):
@@ -22,3 +23,18 @@ def home(request):
 @login_required
 def profile(request):
     return render(request, 'profile.html', {'form':form}) 
+
+def hood_details(request,id):
+    user = request.user
+    if request.method == 'POST':
+        hoodform= NeighbourhoodForm(request.POST)
+        if hoodform.is_valid():
+            hform = hoodform.save(commit=False)
+            hform.admin= user
+            hform.save()
+        return redirect('profile', user.id)
+    else:
+        hoodform = NeighbourhoodForm()
+    return render(request, 'enter_hood.html',{'hoodform':hoodform})
+
+    
