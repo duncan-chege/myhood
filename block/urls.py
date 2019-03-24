@@ -7,5 +7,5 @@ urlpatterns=[
     url(r'register/', views.register, name ='register'),
     url(r'^home',views.home, name='home'),
     url(r'^enter-hood/',views.hood_details, name='hood_details'),
-    url(r'profile/', views.profile, name='profile')
+    url(r'^profile/(\d+)', views.profile, name='profile')
 ]

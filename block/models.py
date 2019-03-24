@@ -10,5 +10,10 @@ class Neighbourhood(models.Model):
     def __str__(self):      #customize the way models are referenced in admin by adding this
         return self.hood_name
 
+class Profile(models.Model):
+    me = models.OneToOneField(User, on_delete=models.CASCADE)
+    myhood = models.ForeignKey(Neighbourhood)
+    profile_image = models.ImageField(default='default.jpeg')
+
 
 
