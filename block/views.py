@@ -24,7 +24,7 @@ def home(request):
 def profile(request):
     return render(request, 'profile.html', {'form':form}) 
 
-def hood_details(request,id):
+def hood_details(request):
     user = request.user
     if request.method == 'POST':
         hoodform= NeighbourhoodForm(request.POST)
@@ -32,9 +32,8 @@ def hood_details(request,id):
             hform = hoodform.save(commit=False)
             hform.admin= user
             hform.save()
-        return redirect('profile', user.id)
+        return redirect('profile',user.id)
     else:
         hoodform = NeighbourhoodForm()
     return render(request, 'enter_hood.html',{'hoodform':hoodform})
 
-    
