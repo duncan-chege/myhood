@@ -2,43 +2,64 @@
 {% block content %}
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <div class="container">
     <div class="row">
+            <div class="col-md-12">
+                    <p class="title"><b><span class="head">411 of</span> {{hood.hood_name}}</b></p>
+                    <hr class="prof">
+            </div>
+
         <div class="col-md-4">
-            <p><b>411 of {{hood.hood_name}}</b></p>
+            <div class="card biz">
+                <div class="card-image">
+                    <img src="/static/images/business.png">
+                </div>
+                <div class="card-content">
+                    <p class="info">Get to know about businesses in {{hood.hood_name}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Click here</a>
+                </div>
+            </div>
+        </div>
 
-            <div class="card">
-                <img src="business.png" alt="business" style="width:100%">
-                <div class="txt_holder">
-                    <p>Get to know about businesses in {{hood.hood.name}}</p>
+        <div class="col-md-4">
 
-                    <button class="home_btn">Click here</button>
+            <div class="card events">
+                <div class="card-image">
+                    <img src="/static/images/events.jpg">
+                </div>
+                <div class="card-content">
+                    <p class="info">Get to know about events in {{hood.hood_name}}</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Click here</a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4">
             <div class="card">
-                <img src="events.jpg" alt="Avatar" style="width:100%">
-                <div class="txt_holder">
-                    <p>Get to know about events in {{hood.hood.name}}</p>
-
-                    <button class="home_btn">Click here</button>
+                <div class="card-image">
+                    <img src="/static/images/police.jpg">
+                </div>
+                <div class="card-content">
+                    <p class=info>Got a health or security problem?</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">Click here</a>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <img src="police.jpg" alt="Avatar" style="width:100%">
-                <div class="txt_holder">
-                    <p>For health and security issues in {{hood.hood.name}}</p>
+    </div>
+</div>
 
-                    <button class="home_btn">Click here</button>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+{% endblock %}

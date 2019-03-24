@@ -16,11 +16,12 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
-@login_required
+# @login_required
 def home(request,id):
     hood = Neighbourhood.objects.get(id=id)
     return render(request,'home.html',{'hood':hood})
 
+# @login_required
 def profile(request,id):
     user = User.objects.get(id=id)
     profiles = Profile.objects.all()
