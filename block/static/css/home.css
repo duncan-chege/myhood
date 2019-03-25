@@ -1,15 +1,11 @@
-.events{
-    margin-top: 40px;
-}
-.police{
-    margin-top: 40px;
-}
+
 img{
     height: 225px;
 }
 .title{
     font-size: 24px;
     margin-top: 20px;
+    color: dimgrey;
 }
 .info{
     font-size: 16px;
@@ -19,7 +15,51 @@ img{
 }
 hr.prof{
     border: 4px solid navy;
-    width: 50px;
+    width: 60px;
     margin-left: -0px;
     margin-top: -7px;
+}
+.headtxt{
+    color: dimgray;
+}
+.hudname{
+    color: navy;
+}
+img {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+}
+.p_title {
+    font-size: 30px;
+    margin-top: 50px;
+    text-transform: uppercase;
+    color: dimgray;
+}
+hr.prof{
+    border: 4px solid navy;
+    width: 50px;
+    margin-left: -0px;
+}
+.name{
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.txt{
+    margin-left: 20px;
+}
+.lives{
+    color: darkslategrey;
+}
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-container > .profilesec{
+    margin-left: 20px;
+}
+.flex-container > .mainposts{
+    width: 300px;
+    margin-left: 40px;
 }

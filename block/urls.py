@@ -9,7 +9,6 @@ urlpatterns=[
     url(r'register/', views.register, name ='register'),
     url(r'^home/(\d+)',views.home, name='home'),
     url(r'^enter-hood/',views.hood_details, name='hood_details'),
-    url(r'^profile/(\d+)', views.profile, name='profile')
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

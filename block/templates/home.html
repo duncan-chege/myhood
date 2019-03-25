@@ -7,57 +7,68 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<div class="container">
-    <div class="row">
-            <div class="col-md-12">
-                    <p class="title"><b><span class="head">411 of</span> {{hood.hood_name}}</b></p>
-                    <hr class="prof">
+<div class="flex-container">
+    <div class="profilesec">
+        <p class="title"> <b>Profile</b> </h1>
+            <hr class="prof">
+            <div class="main_prof">
+                <div class="image">
+                    {% for profile in profiles %}
+                    <img src='{{profile.profile_image.url}}' alt="{{profile.me.username}}'s profile pic">
+                </div>
+
+                <h4 class="name"><b>{{profile.me.username}}</b></h4>
+                <p class="txt">Resides in: <span class="lives">{{profile.myhood.hood_name}},
+                        {{profile.myhood.hood_location}}</span></p>
+                {% endfor %}
             </div>
+    </div>
 
-        <div class="col-md-4">
-            <div class="card biz">
-                <div class="card-image">
-                    <img src="/static/images/business.png">
-                </div>
-                <div class="card-content">
-                    <p class="info">To get info on businesses in {{hood.hood_name}}</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Click here</a>
-                </div>
+    <div class="mainposts">
+        <p class="title"><b>All about </b> <span class="hudname"><b> {{hood.hood_name}} </b></span></p>
+
+        <hr class="prof">
+
+        <div class="card">
+            <div class="card-image">
+                <img src="/static/images/business.png">
             </div>
-        </div>
-
-        <div class="col-md-4">
-
-            <div class="card events">
-                <div class="card-image">
-                    <img src="/static/images/events.jpg">
-                </div>
-                <div class="card-content">
-                    <p class="info">To get info on events in {{hood.hood_name}}</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Click here</a>
-                </div>
+            <div class="card-content">
+                <p class="info">To get info on businesses in {{hood.hood_name}}</p>
+            </div>
+            <div class="card-action">
+                <a href="#">Click here</a>
             </div>
         </div>
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="/static/images/police.jpg">
-                </div>
-                <div class="card-content">
-                    <p class=info>Got a health or security problem?</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">Click here</a>
-                </div>
+        <div class="card">
+            <div class="card-image">
+                <img src="/static/images/events.jpg">
+            </div>
+            <div class="card-content">
+                <p class="info">To get info on events in {{hood.hood_name}}</p>
+            </div>
+            <div class="card-action">
+                <a href="#">Click here</a>
+            </div>
+        </div>
+
+
+
+        <div class="card">
+            <div class="card-image">
+                <img src="/static/images/police.jpg">
+            </div>
+            <div class="card-content">
+                <p class=info>Got a health or security problem?</p>
+            </div>
+            <div class="card-action">
+                <a href="#">Click here</a>
             </div>
         </div>
 
     </div>
+    
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

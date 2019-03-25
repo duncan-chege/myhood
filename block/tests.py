@@ -12,6 +12,12 @@ class NeighbourhoodTest(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.new_hood, Neighbourhood))
 
-    
+class ProfileTest(TestCase):
+    def setUp(self):
+        self.new_hood = Neighbourhood(hood_name="Jiji")
+        self.newprofile = Profile(id=1, myhood=self.new_hood , profile_image="image.jpg")
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.newprofile, Profile))
 
    

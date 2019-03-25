@@ -15,17 +15,12 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
-
 # @login_required
 def home(request,id):
+    user = request.user
     hood = Neighbourhood.objects.get(id=id)
-    return render(request,'home.html',{'hood':hood})
-
-# @login_required
-def profile(request,id):
-    user = User.objects.get(id=id)
     profiles = Profile.objects.all()
-    return render(request, 'profile.html', {'profiles':profiles,'user':user}) 
+    return render(request,'home.html',{'hood':hood,'profiles':profiles,'user':user})
 
 def hood_details(request):
     user = request.user
@@ -35,7 +30,7 @@ def hood_details(request):
             hform = hoodform.save(commit=False)
             hform.admin= user
             hform.save()
-        return redirect('profile',user.id)
+        return redirect('home',user.id)
     else:
         hoodform = NeighbourhoodForm()
     return render(request, 'enter_hood.html',{'hoodform':hoodform})
