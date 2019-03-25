@@ -38,21 +38,24 @@ def hood_details(request):
 def home(request,id):
     user = request.user
     hood = Neighbourhood.objects.get(id=id)
-    return render(request,'home.html',{'hood':hood,'user':user})
+    biz = Business.objects.filter(person=user.id)
+    return render(request,'home.html',{'hood':hood,'user':user,'biz':biz})
 
 def biz_details(request):
     user = request.user
+    hood = Neighbourhood.objects.all()
+    biz = Business.objects.filter(person=user.id)
+
     if request.method == 'POST':
         bizform= BusinessForm(request.POST)
         if bizform.is_valid():
             bform = bizform.save(commit=False)
-            bform.admin= user
+            bform.person= user
             bform.save()
-        return redirect('home')
+        return redirect('home', hood.id)
     else:
         bizform = BusinessForm()
     return render(request, 'enter_biz.html',{'bizform':bizform})
-
 
 
             

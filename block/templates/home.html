@@ -14,7 +14,14 @@
 
 <div class="flex-container">
     <div class="mainposts">
-        <a href="{% url 'biz_details' %}"><button class="button">Add Business Post</button></a>
+        <a href="{% url 'biz_details'  %}"><button class="button">Add Business Post</button></a>
+
+        {% for b in biz %}
+        <p>{{b.bizname}}</p>
+        <p>{{b.bizpost}}</p>
+        <p>{{b.email}}</p>
+        {% endfor %}
+
     </div>
 
 </div>
