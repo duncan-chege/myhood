@@ -1,0 +1,43 @@
+{% extends 'mbase.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+
+<div class='container'>
+    <div class='row'>
+        <div class='col-md-6'>
+            <div class="first">
+                <p class="title"> <b>About Me</b></p>
+                <hr class="prof">
+            </div>
+
+            <div class="main_prof">
+                <div class="image">
+                    {% for profile in profiles %}
+                    <img src='{{profile.profile_image.url}}' alt="{{profile.me.username}}'s profile pic">
+                </div>
+
+                
+                <h4 class="name"><b>{{user.username}}</b></h4>
+                {% endfor %}
+
+                {% if hood %}
+                {% for h in hood  %}
+                <p class="txt">I reside in: <span class="lives">{{h.hood_name}},
+                        {{h.hood_location}}</span></p>
+                <a href="{% url 'home' h.id %}"><button class="hudbtn">View Neighbourhood 411</button></a>
+                {% endfor %}
+                {% endif %}
+
+                {% if not hood %}
+                <a href="{% url 'hood_details' %}"><button class="button">Add Neighbourhood</button></a>
+                {% endif %}
+
+               
+            </div>
+
+        </div>
+
+    </div>
+    {% endblock %}

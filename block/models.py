@@ -21,6 +21,7 @@ class Profile(models.Model):
 class Business(models.Model):
     person = models.OneToOneField(User, on_delete=models.CASCADE)
     bizname = models.CharField(max_length =50)
+    bizpost = models.CharField(max_length =500, blank=True, null=True)
     bizhood = models.ForeignKey(Neighbourhood)
     email= models.CharField(max_length =50)
 

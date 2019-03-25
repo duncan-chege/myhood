@@ -15,12 +15,11 @@ def register(request):
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
 
-# @login_required
-def home(request,id):
-    user = request.user
-    hood = Neighbourhood.objects.get(id=id)
+def profile(request):
+    user= request.user
     profiles = Profile.objects.all()
-    return render(request,'home.html',{'hood':hood,'profiles':profiles,'user':user})
+    hood = Neighbourhood.objects.filter(admin=user.id)
+    return render(request, 'profile.html', {'profiles':profiles,'user':user,'hood':hood}) 
 
 def hood_details(request):
     user = request.user
@@ -30,8 +29,36 @@ def hood_details(request):
             hform = hoodform.save(commit=False)
             hform.admin= user
             hform.save()
-        return redirect('home',user.id)
+        return redirect('profile')
     else:
         hoodform = NeighbourhoodForm()
     return render(request, 'enter_hood.html',{'hoodform':hoodform})
+
+# @login_required
+def home(request,id):
+    user = request.user
+    hood = Neighbourhood.objects.get(id=id)
+    return render(request,'home.html',{'hood':hood,'user':user})
+
+def biz_details(request):
+    user = request.user
+    if request.method == 'POST':
+        bizform= BusinessForm(request.POST)
+        if bizform.is_valid():
+            bform = bizform.save(commit=False)
+            bform.admin= user
+            bform.save()
+        return redirect('home')
+    else:
+        bizform = BusinessForm()
+    return render(request, 'enter_biz.html',{'bizform':bizform})
+
+
+
+            
+
+
+
+
+
 

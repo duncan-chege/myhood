@@ -5,12 +5,6 @@
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-<div class="first">
-    <p class="title"> <b>Profile</b></p>
-    <hr class="prof">
-</div>
 
 <div class="second">
     <p class="title"><b>All about </b> <span class="hudname"><b> {{hood.hood_name}} </b></span></p>
@@ -19,46 +13,8 @@
 </div>
 
 <div class="flex-container">
-    <div class="profilesec">
-        <div class="main_prof">
-            <div class="image">
-                {% for profile in profiles %}
-                <img src='{{profile.profile_image.url}}' alt="{{profile.me.username}}'s profile pic">
-            </div>
-
-            <h4 class="name"><b>{{profile.me.username}}</b></h4>
-            <p class="txt">Resides in: <span class="lives">{{profile.myhood.hood_name}},
-                    {{profile.myhood.hood_location}}</span></p>
-            {% endfor %}
-        </div>
-    </div>
-
-
     <div class="mainposts">
-        <div class="card">
-            <div class="card-image">
-                <img src="/static/images/business.png">
-            </div>
-            <div class="card-content">
-                <p class="info">To get info on businesses in {{hood.hood_name}}</p>
-            </div>
-            <div class="card-action">
-                <a href="#">Click here</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-image">
-                <img src="/static/images/police.jpg">
-            </div>
-            <div class="card-content">
-                <p class=info>Got a health or security problem?</p>
-            </div>
-            <div class="card-action">
-                <a href="#">Click here</a>
-            </div>
-        </div>
-
+        <a href="{% url 'biz_details' %}"><button class="button">Add Business Post</button></a>
     </div>
 
 </div>
