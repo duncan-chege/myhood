@@ -18,3 +18,15 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.me.username}'s Profile"
 
+class Business(models.Model):
+    person = models.OneToOneField(User, on_delete=models.CASCADE)
+    bizname = models.CharField(max_length =50)
+    bizhood = models.ForeignKey(Neighbourhood)
+    email= models.CharField(max_length =50)
+
+    def __str__(self):
+        return f"{self.person.username}'s Post"
+
+
+
+

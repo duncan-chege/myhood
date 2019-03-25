@@ -1,3 +1,11 @@
+.first{
+    margin-left: 20px;
+    display: inline-block;
+}
+.second{
+    margin-left: 12em;
+    display: inline-block;
+}
 
 img{
     height: 225px;
@@ -51,6 +59,10 @@ hr.prof{
 .lives{
     color: darkslategrey;
 }
+.card{
+    width: 300px;
+    margin: 20px !important;
+}
 .flex-container{
     display: flex;
     flex-wrap: wrap;
@@ -60,6 +72,8 @@ hr.prof{
     margin-left: 20px;
 }
 .flex-container > .mainposts{
-    width: 300px;
-    margin-left: 40px;
+    margin-left: 30px;
+    display: inline-flex;
+    margin-top: -25px;
 }
+
