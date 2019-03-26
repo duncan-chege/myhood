@@ -2,11 +2,6 @@
     margin-left: 20px;
     display: inline-block;
 }
-.second{
-    margin-left: 2.5em;
-    display: inline-block;
-}
-
 img{
     height: 225px;
 }
@@ -63,16 +58,6 @@ hr.prof{
     width: 300px;
     margin: 20px !important;
 }
-.flex-container{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.flex-container > .mainposts{
-    margin-left: 2.5em;
-    display: inline-flex;
-    margin-top: -10px;
-}
 .button {
     background-color: white; 
     color: black; 
@@ -80,7 +65,10 @@ hr.prof{
     padding: 11px;
     border-radius: 27px;
     cursor: pointer;
-    margin-left: 5px;
     font-size: 16px;
     margin-top: 20px;
+    margin-bottom: 20px;
+}
+.col-md-7{
+    margin-left: 50px;
 }

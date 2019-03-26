@@ -20,4 +20,13 @@ class ProfileTest(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.newprofile, Profile))
 
+class BusinessTest(TestCase):
+    def setUp(self):
+        self.new_user = User(username="Jiji")
+        self.new_hood = Neighbourhood(hood_name="Jiji")
+        self.newbiz= Business(id=1, person=self.new_user , bizname="Saloon", bizpost="For cowboys", email="s@mail.com", bizhood=self.new_hood)
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.newbiz, Business))
+        
    

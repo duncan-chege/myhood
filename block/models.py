@@ -19,7 +19,7 @@ class Profile(models.Model):
         return f"{self.me.username}'s Profile"
 
 class Business(models.Model):
-    person = models.OneToOneField(User, on_delete=models.CASCADE)
+    person = models.ForeignKey(User)
     bizname = models.CharField(max_length =50)
     bizpost = models.CharField(max_length =500, blank=True, null=True)
     email= models.CharField(max_length =50)

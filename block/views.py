@@ -38,19 +38,20 @@ def hood_details(request):
 def home(request,id):
     user = request.user
     hood = Neighbourhood.objects.get(id=id)
-    biz = Business.objects.filter(person=user.id)
+    biz = Business.objects.filter(person=user.id)       #returns an array. That's why we for loop
     return render(request,'home.html',{'hood':hood,'user':user,'biz':biz})
 
 def biz_details(request):
     user = request.user
-    hood = Neighbourhood.objects.all()
-    biz = Business.objects.filter(person=user.id)
+    hood = Neighbourhood.objects.get(admin=user)        #returns one object
+    print(hood)
 
     if request.method == 'POST':
         bizform= BusinessForm(request.POST)
         if bizform.is_valid():
             bform = bizform.save(commit=False)
-            bform.person= user
+            bform.person= user      #foreign key
+            bform.bizhood= hood      #foreign key
             bform.save()
         return redirect('home', hood.id)
     else:
