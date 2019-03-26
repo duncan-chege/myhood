@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
 <!-- <div class="second">
     <p class="title"><b>All about </b> <span class="hudname"><b> {{hood.hood_name}} </b></span></p>
@@ -13,30 +13,37 @@
 </div> -->
 
 <!-- <div class="container"> -->
-    <div class="row">
-        <div class="col-md-7">
-            <div class="second">
-                <p class="title"><b>All about </b> <span class="hudname"><b> {{hood.hood_name}} </b></span></p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="second">
+            <p class="title"><b>All about </b> <span class="hudname"><b> {{hood.hood_name}} </b></span></p>
+            <hr class="prof">
 
-                <hr class="prof">
-            </div>
-
-            <div class="mainposts">
-                <a href="{% url 'biz_details'  %}"><button class="button">Add Business Post</button></a>
-
-                {% for b in biz %}
-                <p>{{b.bizname}}</p>
-                <p>{{b.bizpost}}</p>
-                <p>{{b.email}}</p>
-                <p>{{b.person}}</p>
-                {% endfor %}
-
-            </div>
-
+            <a href="{% url 'biz_details'  %}"><button class="button">Add Business Post</button></a>
         </div>
     </div>
-<!-- </div> -->
+</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% for b in biz %}
+<div class="row">
+    <div class="col-md-2">
+        <p class=name><b>{{b.person}}</b></p>
+        <p>{{b.email}}</p>
+        <hr>
+        
+    </div>
+
+    <div class="col-md-7">
+        <div class="mainposts">
+            <p class="bizname"><b>BUSINESS NAME</b>:<span class="in_name">{{b.bizname}}</span></p>
+            <p><b>POST</b>: <span class="in_name">{{b.bizpost}}</span></p>
+
+            
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
 
 {% endblock %}

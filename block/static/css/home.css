@@ -44,10 +44,6 @@ hr.prof{
     width: 50px;
     margin-left: -0px;
 }
-.name{
-    margin-left: 50px;
-    margin-top: 20px;
-}
 .txt{
     margin-left: 20px;
 }
@@ -69,6 +65,16 @@ hr.prof{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-.col-md-7{
-    margin-left: 50px;
+
+.name{
+    text-transform: uppercase;
+}
+.in_name{
+    margin-left: 20px;
+}
+.mainposts{
+    width: 500px;
+}
+.row{
+    margin-left: 20px;
 }
