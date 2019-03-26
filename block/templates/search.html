@@ -13,26 +13,28 @@
     {% endif %}
 </div>
 
+
+{% if businesses %}
+{% for b in businesses %}
 <div class="row mess">
-        {% if businesses %}
-        {% for b in businesses %}
-        <div class="col-md-2">
-            <p class=name><b>{{b.person}}</b></p>
-            <p>{{user.email}}</p>
-            <hr>
-            
-        </div>
-    
-        <div class="col-md-7">
-            <div class="mainposts">
-                <p class="bizname"><b>BUSINESS NAME</b>:<span class="in_name">{{b.bizname}}</span></p>
-                <p><b>POST</b>: <span class="in_name">{{b.bizpost}}</span></p>
-    
-                
-            </div>
-        </div>
-        {% endfor %}
-        {% endif %}
+    <div class="col-md-3">
+        <p class=name><b>{{b.person}}</b></p>
+        <hr>
+        <p>{{user.email}}</p>
+
+
     </div>
+
+    <div class="col-md-7">
+        <div class="mainposts">
+            <p class="bizname"><b>BUSINESS NAME</b>:<span class="in_name">{{b.bizname}}</span></p>
+            <p><b>POST</b>: <span class="in_name">{{b.bizpost}}</span></p>
+
+
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
 
 {% endblock %}
