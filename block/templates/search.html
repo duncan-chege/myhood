@@ -1,0 +1,38 @@
+{% extends 'mbase.html' %}
+{% block content %}
+{% load static %}
+
+
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+<div class="container">
+    <div class="row mess">
+        {% if not businesses %}
+        <p class="stmnt"> The business <i>{{message}}</i> is not available</p>
+    </div>
+    {% endif %}
+</div>
+
+<div class="row mess">
+        {% if businesses %}
+        {% for b in businesses %}
+        <div class="col-md-2">
+            <p class=name><b>{{b.person}}</b></p>
+            <p>{{user.email}}</p>
+            <hr>
+            
+        </div>
+    
+        <div class="col-md-7">
+            <div class="mainposts">
+                <p class="bizname"><b>BUSINESS NAME</b>:<span class="in_name">{{b.bizname}}</span></p>
+                <p><b>POST</b>: <span class="in_name">{{b.bizpost}}</span></p>
+    
+                
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+{% endblock %}

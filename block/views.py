@@ -38,9 +38,9 @@ def hood_details(request):
 def home(request,id):
     user = request.user
     hood = Neighbourhood.objects.get(id=id)
-    biz = Business.objects.filter(person=user.id)       #returns an array. That's why we for loop
-    return render(request,'home.html',{'hood':hood,'user':user,'biz':biz})
-
+    biz = Business.objects.filter(bizhood=hood.id)       #returns an array. That's why we for loop
+    return render(request,'home.html',{'hood':hood,'biz':biz,'user':user})
+    
 def biz_details(request):
     user = request.user
     hood = Neighbourhood.objects.get(admin=user)        #returns one object
@@ -58,6 +58,14 @@ def biz_details(request):
         bizform = BusinessForm()
     return render(request, 'enter_biz.html',{'bizform':bizform})
 
+def search_results(request):
+    if 'business'in request.GET and request.GET['business']:
+        user = request.user
+        name = request.GET.get("business")
+        searched_businesses = Business.search_by_bizname(name)
+        message = f'{name}'
+
+        return render(request, 'search.html',{'message':message, 'businesses': searched_businesses,'user':user})
 
             
 

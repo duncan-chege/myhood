@@ -28,6 +28,11 @@ class Business(models.Model):
     def __str__(self):
         return f"{self.person.username}'s Post"
 
+    @classmethod
+    def search_by_bizname(cls,bizname):
+        searched = cls.objects.filter(bizname__icontains=bizname)
+        return searched
+
 
 
 

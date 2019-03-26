@@ -7,7 +7,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">   
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
     <link rel="stylesheet" href="{% static 'css/mbase.css' %}">
 
@@ -21,7 +22,14 @@
 
 <body>
 
-<!-- section for navabar -->
+    <!-- section for navabar -->
+    <div class="w3-bar w3-border w3-light-grey">
+        <a href="{% url 'profile' %}" class="w3-bar-item w3-button w3-left">Profile</a>
+        <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-left">Logout</a>
+        <form class="search-section w3-bar-item w3-right" role="search" action="{% url 'search_results' %}">
+            <input class="input-search" type="search" name="business" placeholder="Search a business" />
+        </form>
+    </div>
 
     {% block content %}
 
