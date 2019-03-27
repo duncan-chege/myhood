@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="second">
             <p class="title"><b>All about </b> <span class="hudname"><b> {{hood.hood_name}} </b></span></p>
             <hr class="prof">
@@ -15,8 +15,9 @@
     </div>
 </div>
 
-{% for b in biz %}
 <div class="row">
+
+{% for b in biz %}
     <div class="col-md-2">
         <p class=name><b>{{b.person}}</b></p>
         <p>{{user.email}}</p>
@@ -24,7 +25,7 @@
         
     </div>
 
-    <div class="col-md-7">
+    <div class="col-md-3">
         <div class="mainposts">
             <p class="bizname"><b>BUSINESS NAME</b>:<span class="in_name">{{b.bizname}}</span></p>
             <p><b>POST</b>: <span class="in_name">{{b.bizpost}}</span></p>
@@ -32,7 +33,28 @@
             
         </div>
     </div>
+    {% endfor %}
+    <div class="col-md-7">
+        <div class="card">
+            <img src='/static/images/police.jpg' alt="Police" style="width:100%">
+            <div class="img_container">
+              <h4><b>Neighbourhood Police</b></h4> 
+              <p>Offices near Makutano Supermarket</p> 
+            </div>
+          </div>
+
+          <div class="card">
+            <img src='/static/images/health.jpg' alt="Health" style="width:100%">
+            <div class="img_container">
+              <h4><b>Health center</b></h4> 
+              <p>Near Moe's cafe</p> 
+            </div>
+          </div>
+
+
+    </div>
+
 </div>
-{% endfor %}
+
 
 {% endblock %}
