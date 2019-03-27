@@ -7,10 +7,16 @@ class NeighbourhoodTest(TestCase):
         self.assertEqual(str(hood1), hood1.hood_name)
 
     def setUp(self):
-        self.new_hood = Neighbourhood(id=1, hood_name="Jiji",hood_location="Umoja",occupants=80)
+        self.new_admin = User(username="Dun")
+        self.new_hood = Neighbourhood(id=1, hood_name="Jiji",hood_location="Umoja",occupants=80, admin=self.new_admin)
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_hood, Neighbourhood))
+
+    def test_save_neighbourhood(self):
+        self.new_hood.save_neighbourhood()
+        neighbourhoods = Neighbourhood.objects.all()
+        self.assertTrue(len(neighbourhoods)>0)
 
 class ProfileTest(TestCase):
     def setUp(self):

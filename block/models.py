@@ -10,6 +10,10 @@ class Neighbourhood(models.Model):
     def __str__(self):      #customize the way models are referenced in admin by adding this
         return self.hood_name
 
+    def save_neighbourhood(self):
+        self.save()
+
+
 class Profile(models.Model):
     me = models.OneToOneField(User, on_delete=models.CASCADE)
     myhood = models.ForeignKey(Neighbourhood)
@@ -18,12 +22,18 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.me.username}'s Profile"
 
+    def save_profile(self):
+        self.save()
+
 class Business(models.Model):
     person = models.ForeignKey(User)
     bizname = models.CharField(max_length =50)
     bizpost = models.CharField(max_length =500, blank=True, null=True)
     email= models.CharField(max_length =50)
     bizhood = models.ForeignKey(Neighbourhood)
+
+    def save_business(self):
+        self.save()
 
     def __str__(self):
         return f"{self.person.username}'s Post"
